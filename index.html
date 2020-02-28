@@ -337,7 +337,13 @@ return new Promise(function(resolve, reject) {
 <div id="third">
   <input type="button" class="button2 nodebuton advanced" value="Advanced options" onclick="advancedoptions()" />
   <div id="thirdoptions">
-  <textarea id="nodearea" spellcheck="false" placeholder="https://nodes.thetangle.org:443"></textarea>
+  
+  <input list="browsers" name="myBrowser" id="nodearea" /></label>
+<datalist id="browsers">
+  <option value="https://nodes.devnet.thetangle.org:443/">
+  <option value="https://perma.iota.partners">
+  <option value="https://nodes.thetangle.org:443">
+</datalist>
   <input type="button" class="button2 nodebuton" value="Change node" onclick="changeNode()" />
   <input type="button" class="button2 pow" id="pow" value="Use local PoW" onclick="localPoW()" />
   <input type="button" class="button2" id="tipsel" value="Use tipselection" onclick="changeTipselection()" />
@@ -355,7 +361,7 @@ return new Promise(function(resolve, reject) {
 </div>
 <script>
 function advancedoptions(){
-  document.getElementById('nodearea').value = 'https://perma.iota.partners'
+  document.getElementById('nodearea').value = 'https://nodes.devnet.thetangle.org:443/'
   let e = document.getElementById('thirdoptions')
   let style = getComputedStyle(e)
   if(style.visibility=='hidden'){
@@ -407,7 +413,7 @@ function localPoW(){
 
 function changeNode(){
   let nodeurl = document.getElementById('nodearea').value
-  var node = 'https://nodes.thetangle.org:443'
+  var node = 'https://nodes.devnet.thetangle.org:443/'
   if(nodeurl!='undefined'){
     node = nodeurl
   }
